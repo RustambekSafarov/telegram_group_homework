@@ -18,7 +18,7 @@ def find_all_users_name(data: dict) -> list:
                 users.append(m['from'])
         elif m['type'] == 'service':
             if users.count(m['actor']) == 0:
-                users.append(m['from'])
+                users.append(m['actor'])
 
     return users
 
