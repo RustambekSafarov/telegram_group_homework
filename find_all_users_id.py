@@ -14,10 +14,10 @@ def find_all_users_id(data: dict) -> list:
     messages = data['messages']
     for i in messages:
         if i['type'] == 'service':
-            if users_id.count(i['actor_id']) == 0:
+            if i['actor_id'] not in users_id:
                 users_id.append(i['actor_id'])
         elif i['type'] == 'message':
-            if users_id.count(i['from_id']) == 0:
+            if i['from_id'] not in users_id:
                 users_id.append(i['from_id'])
     return users_id
 
